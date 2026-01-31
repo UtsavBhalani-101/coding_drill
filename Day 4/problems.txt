@@ -1,0 +1,213 @@
+Good. Day 4 is where **implicit assumptions get exposed**.
+Up to now you’ve been moving pointers and counters.
+Today you’ll be forced to **maintain truth across iterations**.
+
+Theme: **invariants under accumulation + delayed decisions**.
+
+Same rules. Same discipline.
+One `.py` file. No libraries. No notes. Comments only if they state an invariant.
+
+---
+
+# **DAY 4 — BLOCK 1 (90 minutes)**
+
+**Theme:** Accumulation, delayed evaluation, correctness over time
+
+---
+
+## **Problem 1 — Longest Run of Identical Characters**
+
+**Goal:** Maintain state across a stream.
+
+**Task:**
+Given a string, find the **length of the longest contiguous run** of the same character.
+
+**Input:**
+
+```text
+"aaabbccccddeee"
+```
+
+**Output:**
+
+```text
+4
+```
+
+**Rules:**
+
+* ❌ No `count`
+* ❌ No regex
+* One pass only
+* You must track:
+
+  * current run
+  * best run so far
+
+**Invariant to respect:**
+
+> At every step, current_run reflects only the active streak.
+
+Most people forget to reset at the right moment.
+
+---
+
+## **Problem 2 — Check If Array Is Sorted (Strictly Increasing)**
+
+**Goal:** Learn early exit discipline.
+
+**Task:**
+Return `True` if the list is strictly increasing, else `False`.
+
+**Input:**
+
+```python
+[1, 2, 3, 5]
+[1, 2, 2, 3]
+```
+
+**Rules:**
+
+* ❌ No `sorted`
+* ❌ No extra arrays
+* Stop immediately when condition fails
+
+**Invariant:**
+
+> All elements seen so far satisfy the ordering condition.
+
+If you check too late, you’re wasting time.
+
+---
+
+## **Problem 3 — Best Time to Buy and Sell (Single Transaction)**
+
+**Goal:** Separate observation from decision.
+
+**Task:**
+Given daily prices, find the **maximum profit** from one buy and one sell.
+
+**Input:**
+
+```python
+[7, 1, 5, 3, 6, 4]
+```
+
+**Output:**
+
+```text
+5
+```
+
+(buy at 1, sell at 6)
+
+**Rules:**
+
+* ❌ No nested loops
+* ❌ No future scanning
+* One pass only
+* You must track:
+
+  * minimum seen so far
+  * best profit so far
+
+**Invariant:**
+
+> Minimum price is always from the past, never the future.
+
+This invariant is where people lie to themselves.
+
+---
+
+## **Problem 4 — Remove Adjacent Duplicates (Manual Stack Logic)**
+
+**Goal:** Controlled state mutation.
+
+**Task:**
+Remove adjacent duplicates until none remain.
+
+**Input:**
+
+```text
+"abbaca"
+```
+
+**Output:**
+
+```text
+"ca"
+```
+
+**Rules:**
+
+* ❌ No `replace`
+* ❌ No recursion
+* ❌ No library stack
+* Use a list as a manual stack
+
+**Invariant:**
+
+> Stack always contains the fully processed prefix.
+
+Break this and everything collapses.
+
+---
+
+## **Problem 5 — Controlled Failure**
+
+Pick **Problem 3 or 4** and:
+
+* break one invariant intentionally
+* observe the wrong output
+* fix it **without adding variables**
+
+If you add variables, you’re dodging the invariant.
+
+---
+
+# **Time discipline**
+
+* ⏱️ 25 min → Problem 1
+* ⏱️ 15 min → Problem 2
+* ⏱️ 30 min → Problem 3
+* ⏱️ Remaining → Problem 4 or debugging
+
+Do not reorder.
+Discomfort is the signal.
+
+---
+
+## **What to watch today**
+
+You will:
+
+* forget to update “best so far”
+* update state in the wrong order
+* be tempted to “just check later”
+
+Don’t.
+
+If correctness depends on “later”, your invariant is wrong.
+
+---
+
+## **Stop condition**
+
+At 90 minutes:
+
+* Stop immediately
+* Even if logic feels unfinished
+
+Stopping trains **boundary respect**, not laziness.
+
+---
+
+When you return, tell me only:
+
+1. Which invariant you violated first
+2. Where you updated state in the wrong order
+3. One assumption you caught yourself making
+
+No code. No explanations.
+
+That’s Day 4.
