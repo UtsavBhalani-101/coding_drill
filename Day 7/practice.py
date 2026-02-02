@@ -25,7 +25,7 @@ def prob1():
 
     print(count)
 
-# prob1()
+prob1()
 
 # ? Given a list of positive integers and a target, find the minimum length subarray whose sum ≥ target.
 
@@ -62,7 +62,7 @@ def prob2():
 
     print(best_sum, best_list)
     print(len(best_list))
-prob2()
+# prob2()
 
 # ? Return True if s2 is a rotation of s1.
 
@@ -170,7 +170,7 @@ def prob5():
     print(best_sum, best_list)
     print(len(best_list))
 
-prob5()
+# prob5()
 
 #^ the elif still works, so it might be redandant 
 
