@@ -1,0 +1,1 @@
+tumbling window - when a limit is hit, you destroy the batch and start over.
